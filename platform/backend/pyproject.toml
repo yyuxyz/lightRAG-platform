@@ -1,0 +1,17 @@
+[project]
+name = "lightrag-platform"
+version = "0.1.0"
+description = "External multi-user platform wrapper for LightRAG"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi",
+  "uvicorn",
+  "sqlalchemy",
+  "httpx",
+  "PyJWT",
+  "bcrypt",
+  "python-multipart",
+]
+
+[tool.uv]
+package = false

@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Frontend build output and package-manager caches
+dist/
+.bun-tmp/
+.bun-cache/
+
+# Runtime data
+*.db
+*.sqlite
+*.sqlite3
+logs/
+runtime/
+workspaces/
+
+# Environment and local config
+.env
+.env.*
+!.env.example
+
+# Generated render/temp files
+docx_render*/
+*.tmp
+*.log
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
