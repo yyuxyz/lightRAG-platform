@@ -389,9 +389,9 @@ function App() {
           <span>LightRAG</span>
         </div>
         <NavButton id="dashboard" view={view} setView={setView} icon={<Activity />} label="概览" />
-        <NavButton id="documents" view={view} setView={setView} icon={<FileText />} label="Documents" />
-        <NavButton id="knowledge-graph" view={view} setView={setView} icon={<Network />} label="Knowledge Graph" />
-        <NavButton id="retrieval" view={view} setView={setView} icon={<Search />} label="Retrieval" />
+        <NavButton id="documents" view={view} setView={setView} icon={<FileText />} label="知识库" />
+        <NavButton id="knowledge-graph" view={view} setView={setView} icon={<Network />} label="知识图谱" />
+        <NavButton id="retrieval" view={view} setView={setView} icon={<Search />} label="检索" />
         {user.role === 'admin' && (
           <NavButton id="users" view={view} setView={setView} icon={<Users />} label="用户" />
         )}
@@ -458,9 +458,9 @@ function Dashboard({ user }: { user: User }) {
       <div className="panel">
         <h3>功能入口</h3>
         <div className="feature-list">
-          <span>Documents：上传、扫描、状态筛选和文档列表</span>
-          <span>Knowledge Graph：标签检索、热门标签和子图数据</span>
-          <span>Retrieval：多模式问答与结构化检索结果</span>
+          <span>知识库：上传、扫描、状态筛选和文档列表</span>
+          <span>知识图谱：标签检索、热门标签和子图数据</span>
+          <span>检索：多模式问答与结构化检索结果</span>
         </div>
       </div>
     </section>
@@ -646,7 +646,7 @@ function Documents() {
 
   return (
     <section>
-      <PageHeader title="Documents" subtitle="参照原生 Document Management，保留上传、扫描、Pipeline 状态和文档状态列表。" />
+      <PageHeader title="知识库" subtitle="参照原生 Document Management，保留上传、扫描、Pipeline 状态和文档状态列表。" />
       <div className="toolbar panel">
         <div className="upload-summary">
           <Upload size={20} />
@@ -900,7 +900,7 @@ function KnowledgeGraph() {
 
   return (
     <section>
-      <PageHeader title="Knowledge Graph" subtitle="参照原生 Knowledge Graph，提供可缩放、可拖拽、可检索的图形化知识图谱。" />
+      <PageHeader title="知识图谱" subtitle="参照原生 Knowledge Graph，提供可缩放、可拖拽、可检索的图形化知识图谱。" />
       <div className="panel kg-layout">
         <div className="kg-controls">
           <label>
@@ -1049,7 +1049,7 @@ function KnowledgeGraph() {
 }
 
 function Retrieval() {
-  const [question, setQuestion] = useState('请总结我的知识库内容')
+  const [question, setQuestion] = useState('输入检索内容')
   const [mode, setMode] = useState<QueryMode>('mix')
   const [topK, setTopK] = useState(60)
   const [chunkTopK, setChunkTopK] = useState(20)
@@ -1100,7 +1100,7 @@ function Retrieval() {
 
   return (
     <section>
-      <PageHeader title="Retrieval" subtitle="参照原生 Retrieval，支持多种 LightRAG 查询模式、引用开关和结构化检索数据。" />
+      <PageHeader title="检索" subtitle="参照原生 Retrieval，支持多种 LightRAG 查询模式、引用开关和结构化检索数据。" />
       <div className="panel retrieval-grid">
         <label className="question-box">
           Query
