@@ -186,6 +186,13 @@ textarea {
   margin: 26px 0 16px;
 }
 
+.page-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
 .page-header h2 {
   margin: 0;
 }
@@ -193,6 +200,19 @@ textarea {
 .page-header p {
   margin: 6px 0 0;
   color: #64748b;
+}
+
+.kb-name {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 10px;
+  border: 1px solid #cbd5df;
+  border-radius: 6px;
+  background: #f8fafc;
+  color: #17475b;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .stat-grid {

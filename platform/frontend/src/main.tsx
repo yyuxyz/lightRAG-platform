@@ -408,7 +408,7 @@ function App() {
           </button>
         </header>
         {view === 'dashboard' && <Dashboard user={user} />}
-        {view === 'documents' && <Documents />}
+        {view === 'documents' && <Documents user={user} />}
         {view === 'knowledge-graph' && <KnowledgeGraph />}
         {view === 'retrieval' && <Retrieval />}
         {view === 'users' && user.role === 'admin' && <UsersAdmin />}
@@ -467,10 +467,13 @@ function Dashboard({ user }: { user: User }) {
   )
 }
 
-function PageHeader({ title, subtitle }: { title: string; subtitle?: string }) {
+function PageHeader({ title, subtitle, meta }: { title: string; subtitle?: string; meta?: UINode }) {
   return (
     <div className="page-header">
-      <h2>{title}</h2>
+      <div className="page-title-row">
+        <h2>{title}</h2>
+        {meta}
+      </div>
       {subtitle && <p>{subtitle}</p>}
     </div>
   )
@@ -496,7 +499,7 @@ function JsonBlock({ data }: { data: unknown }) {
   return <pre className="console">{typeof data === 'string' ? data : JSON.stringify(data, null, 2)}</pre>
 }
 
-function Documents() {
+function Documents({ user }: { user: User }) {
   const [file, setFile] = useState<File | null>(null)
   const [status, setStatus] = useState('ALL')
   const [page, setPage] = useState(1)
@@ -646,7 +649,11 @@ function Documents() {
 
   return (
     <section>
-      <PageHeader title="知识库" subtitle="参照原生 Document Management，保留上传、扫描、Pipeline 状态和文档状态列表。" />
+      <PageHeader
+        title="知识库"
+        meta={<span className="kb-name">当前知识库：{user.workspace_id}</span>}
+        subtitle="参照原生 Document Management，保留上传、扫描、Pipeline 状态和文档状态列表。"
+      />
       <div className="toolbar panel">
         <div className="upload-summary">
           <Upload size={20} />
